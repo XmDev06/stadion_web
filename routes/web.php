@@ -29,6 +29,7 @@ Route::middleware(['is_admin', 'auth'])->group(function () {
     });
 
     Route::resource('admin/stadions', \App\Http\Controllers\StadionController::class);
+    Route::resource('admin/users', \App\Http\Controllers\UserController::class);
 });
 
 Route::middleware(['is_stadion', 'auth'])->group(function () {

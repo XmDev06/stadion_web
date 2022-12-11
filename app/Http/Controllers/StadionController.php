@@ -47,6 +47,7 @@ class StadionController extends Controller
        $test = $request->validate([
             'name' => ['required', 'unique:stadions,name'],
             'phone' => 'required',
+            'narxi' => 'required',
             'user_id' => 'required',
             'viloyat' => 'required',
             'tuman' => 'required',
@@ -57,6 +58,7 @@ class StadionController extends Controller
             [
                 'name' => $request->name,
                 'phone' => $request->phone,
+                'narxi' => $request->narxi,
                 'user_id' => $request->user_id,
                 'viloyat' => $request->viloyat,
                 'tuman' => $request->tuman,
@@ -82,11 +84,14 @@ class StadionController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Stadion  $stadion
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Stadion $stadion)
     {
-        //
+        $tumanlar=Tumanlar::all();
+        $viloyatlar=Viloyatlar::all();
+        $users = User::where('is_admin', '2')->get();
+        return view('admin.stadions.update',compact('stadion','users','viloyatlar','tumanlar'));
     }
 
     /**
@@ -98,7 +103,8 @@ class StadionController extends Controller
      */
     public function update(Request $request, Stadion $stadion)
     {
-        //
+        $stadion->update($request->all());
+        return redirect()->route('stadions.index');
     }
 
     /**

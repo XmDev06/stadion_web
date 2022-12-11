@@ -18,14 +18,19 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
 
+            $table->bigInteger('narxi');
+
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('viloyat');
             $table->foreign('viloyat')->references('id')->on('viloyatlars');
 
             $table->unsignedBigInteger('tuman');
             $table->foreign('tuman')->references('id')->on('tumanlars');
+
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
 
             $table->timestamps();
         });

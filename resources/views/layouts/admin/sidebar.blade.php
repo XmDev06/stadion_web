@@ -81,10 +81,10 @@
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-{{--            <div class="image">--}}
-{{--                <img src="{{asset("AdminLTE-master/dist/img/user2-160x160.jpg")}}" class="img-circle elevation-2"--}}
-{{--                     alt="User Image">--}}
-{{--            </div>--}}
+            {{--            <div class="image">--}}
+            {{--                <img src="{{asset("AdminLTE-master/dist/img/user2-160x160.jpg")}}" class="img-circle elevation-2"--}}
+            {{--                     alt="User Image">--}}
+            {{--            </div>--}}
             <div class="info">
                 <a href="/profile" class="pl-2 d-block">{{auth()->user()->name}}</a>
             </div>
@@ -106,7 +106,17 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="/admin/stadions" class="nav-link">
+                    <a href="/admin/users" class="nav-link @if(strpos(url()->current(),"admin/users"))active
+                            @endif">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Users
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/stadions" class="nav-link @if(strpos(url()->current(),"admin/stadions"))active
+                            @endif">
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Stadions

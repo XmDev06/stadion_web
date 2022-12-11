@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Stadions</li>
+                        <li class="breadcrumb-item active">Users</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,35 +25,38 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{route('stadions.create')}}" class="btn btn-success mb-4">Create stadion</a>
+                            <a href="{{route('users.create')}}" class="btn btn-success mb-4">Create user</a>
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Phone</th>
-                                    <th>Narxi</th>
-                                    <th>User</th>
-                                    <th>Viloyat</th>
-                                    <th>Tuman</th>
+                                    <th>Is Admin</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($stadions as $stadion)
+                                @foreach($users as $user)
                                     <tr>
-                                        <td>{{$stadion->id}}</td>
-                                        <td>{{$stadion->name}}</td>
-                                        <td>+{{$stadion->phone}}</td>
-                                        <td>{{$stadion->narxi}}</td>
-                                        <td>{{\App\Models\User::find($stadion->user_id)->name}}</td>
-                                        <td>{{\App\Models\Viloyatlar::find($stadion->viloyat)->name}}</td>
-                                        <td>{{\App\Models\Tumanlar::find($stadion->tuman)->name}}</td>
+                                        <td>{{$user->id}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>+{{$user->phone}}</td>
                                         <td>
-{{--                                            <a class="btn btn-primary" href="{{route('stadions.show', $stadion->id)}}">Show</a>--}}
-                                            <a class="btn btn-primary" href="{{route('stadions.edit', $stadion->id)}}">Update</a>
+                                            @if($user->is_admin==1)
+                                                Adminstrator
+                                            @elseif($user->is_admin==2)
+                                                Stadion Admin
+                                            @elseif($user->is_admin==0)
+                                                User
+                                            @endif
+                                        </td>
+                                        <td>
+                                            {{--                                            <a class="btn btn-primary" href="{{route('users.show', $user->id)}}">Show</a>--}}
+                                            <a class="btn btn-primary"
+                                               href="{{route('users.edit', $user->id)}}">Update</a>
 
-                                            <form action="{{route('stadions.destroy', $stadion->id)}}" method="post"
+                                            <form action="{{route('users.destroy', $user->id)}}" method="post"
                                                   style="display: inline-block">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="hidden" name="_method" value="DELETE">
@@ -69,7 +72,6 @@
                 </div>
             </div>
         </div><!--/. container-fluid -->
-
     </section>
     <!-- /.content -->
 </div>
