@@ -12,7 +12,9 @@ class Stadion extends Model
     protected $fillable = [
         'name',
         'phone',
+        'phone_2',
         'narxi',
+        'moljal',
         'user_id',
         'viloyat',
         'tuman',

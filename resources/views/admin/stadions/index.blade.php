@@ -23,6 +23,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 grid-margin stretch-card">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="card">
                         <div class="card-body">
                             <a href="{{route('stadions.create')}}" class="btn btn-success mb-4">Create stadion</a>
@@ -32,7 +41,9 @@
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Phone</th>
+                                    <th>Phone 2</th>
                                     <th>Narxi</th>
+                                    <th>Mo'ljal</th>
                                     <th>User</th>
                                     <th>Viloyat</th>
                                     <th>Tuman</th>
@@ -45,7 +56,13 @@
                                         <td>{{$stadion->id}}</td>
                                         <td>{{$stadion->name}}</td>
                                         <td>+{{$stadion->phone}}</td>
+                                        @if($stadion->phone_2 !== null)
+                                            <td>{{$stadion->phone_2}}</td>
+                                        @else
+                                            <td>Mavjud emas</td>
+                                        @endif
                                         <td>{{$stadion->narxi}}</td>
+                                        <td>{{$stadion->moljal}}</td>
                                         <td>{{\App\Models\User::find($stadion->user_id)->name}}</td>
                                         <td>{{\App\Models\Viloyatlar::find($stadion->viloyat)->name}}</td>
                                         <td>{{\App\Models\Tumanlar::find($stadion->tuman)->name}}</td>

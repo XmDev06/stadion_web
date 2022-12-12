@@ -50,8 +50,17 @@
                                            aria-describedby="phone" name="phone">
                                 </div>
                                 <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone 2</label>
+                                    <input value="{{$stadion->phone_2}}" type="number" class="form-control" id="phone"
+                                           aria-describedby="phone" name="phone_2">
+                                </div>
+                                <div class="mb-3">
                                     <label for="narxi" class="form-label">Narxi(so'm)</label>
                                     <input value="{{$stadion->narxi}}" type="number" class="form-control" id="narxi" aria-describedby="narxi" name="narxi">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="narxi" class="form-label">Mo'ljal</label>
+                                    <textarea type="number" class="form-control" id="narxi" aria-describedby="narxi" name="moljal">{{$stadion->moljal}}</textarea>
                                 </div>
 
                                 <div class="mb-3">

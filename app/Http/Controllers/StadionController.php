@@ -32,7 +32,6 @@ class StadionController extends Controller
         $users = User::where('is_admin', '2')->get();
         $viloyatlar = Viloyatlar::all();
         $tumanlar=Tumanlar::all();
-//        dd($users);
         return view('admin.stadions.create', compact('users', 'viloyatlar', 'tumanlar'));
     }
 
@@ -44,11 +43,13 @@ class StadionController extends Controller
      */
     public function store(Request $request)
     {
-       $test = $request->validate([
-            'name' => ['required', 'unique:stadions,name'],
-            'phone' => 'required',
+       $request->validate([
+            'name' => 'required|unique:stadions,name',
+            'phone' => 'required|unique:stadions,phone|min:10',
+            'phone_2' => 'nullable',
             'narxi' => 'required',
             'user_id' => 'required',
+            'moljal'=>'required',
             'viloyat' => 'required',
             'tuman' => 'required',
         ]);
@@ -58,7 +59,9 @@ class StadionController extends Controller
             [
                 'name' => $request->name,
                 'phone' => $request->phone,
+                'phone_2' => $request->phone_2,
                 'narxi' => $request->narxi,
+                'moljal' => $request->moljal,
                 'user_id' => $request->user_id,
                 'viloyat' => $request->viloyat,
                 'tuman' => $request->tuman,

@@ -47,8 +47,16 @@
                                     <input type="number" class="form-control" id="phone" aria-describedby="phone" name="phone">
                                 </div>
                                 <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="number" class="form-control" id="phone" aria-describedby="phone" name="phone_2">
+                                </div>
+                                <div class="mb-3">
                                     <label for="narxi" class="form-label">Narxi(so'm)</label>
                                     <input type="number" class="form-control" id="narxi" aria-describedby="narxi" name="narxi">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="narxi" class="form-label">Narxi(so'm)</label>
+                                    <textarea type="number" class="form-control" id="narxi" aria-describedby="narxi" placeholder="Stadion uchun mo'ljal kiriting" name="moljal"></textarea>
                                 </div>
 
                                 <div class="mb-3">
