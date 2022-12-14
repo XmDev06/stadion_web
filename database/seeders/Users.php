@@ -27,7 +27,15 @@ class Users extends Seeder
                 'is_admin'=> '1',
             ],
             [
-                'name' => 'Stadion',
+                'name' => "A'zamjon",
+                'phone' => '998937760933',
+                'password' => bcrypt('password'),
+                'created_at' => $current_time,
+                'updated_at' => $current_time,
+                'is_admin'=> '2',
+            ],
+            [
+                'name' => 'Humoyunmirzo',
                 'phone' => '998335060511',
                 'password' => bcrypt('password'),
                 'created_at' => $current_time,
