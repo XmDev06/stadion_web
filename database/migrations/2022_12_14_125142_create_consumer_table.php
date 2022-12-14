@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('phone');
 
+            $table->string('manzil');
+
             $table->string('viloyat');
             $table->string('tuman');
 
