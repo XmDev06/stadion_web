@@ -14,14 +14,14 @@ return new class extends Migration {
     {
         Schema::create('consumer', function (Blueprint $table) {
             $table->id();
-            $table->string('chat_id');
-            $table->string('name');
-            $table->string('phone');
+            $table->string('chat_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
 
-            $table->string('manzil');
+            $table->string('manzil')->nullable();
 
-            $table->string('viloyat');
-            $table->string('tuman');
+            $table->string('viloyat')->nullable();
+            $table->string('tuman')->nullable();
 
             $table->timestamps();
         });
