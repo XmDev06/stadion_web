@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('stadion_id')->references('id')->on('stadions');
 
             $table->unsignedBigInteger('consumer');
-            $table->foreign('consumer')->references('id')->on('stadions');
+            $table->foreign('consumer')->references('id')->on('consumer');
 
             $table->string('vaqt')->nullable();
 
