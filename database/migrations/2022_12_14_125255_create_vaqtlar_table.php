@@ -22,9 +22,9 @@ return new class extends Migration
             $table->unsignedBigInteger('consumer');
             $table->foreign('consumer')->references('id')->on('stadions');
 
-            $table->string('vaqt');
+            $table->string('vaqt')->nullable();
 
-            $table->string('kun');
+            $table->string('kun')->nullable();
         });
     }
 
