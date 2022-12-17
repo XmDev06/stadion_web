@@ -22,6 +22,7 @@ return new class extends Migration {
 
             $table->string('viloyat')->nullable();
             $table->string('tuman')->nullable();
+            $table->string('status')->nullable();
 
             $table->timestamps();
         });
