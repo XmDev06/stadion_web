@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             Users::class,
             viloyatlars::class,
-            tumanlars::class
+            tumanlars::class,
+            QfySeeder::class
         ]);
 
 

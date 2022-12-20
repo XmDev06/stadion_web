@@ -18,18 +18,20 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('phone_2')->nullable();
-            $table->text('moljal')->nullable();
 
             $table->bigInteger('narxi');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('viloyat');
-            $table->foreign('viloyat')->references('id')->on('viloyatlars');
+            $table->unsignedBigInteger('viloyat_id');
+            $table->foreign('viloyat_id')->references('id')->on('viloyatlars');
 
-            $table->unsignedBigInteger('tuman');
-            $table->foreign('tuman')->references('id')->on('tumanlars');
+            $table->unsignedBigInteger('tuman_id');
+            $table->foreign('tuman_id')->references('id')->on('tumanlars');
+
+            $table->unsignedBigInteger('qfy_id');
+            $table->foreign('qfy_id')->references('id')->on('qfy');
 
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
