@@ -17,11 +17,9 @@ return new class extends Migration {
             $table->string('chat_id')->nullable();
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
-
-            $table->string('manzil')->nullable();
-
             $table->string('viloyat')->nullable();
             $table->string('tuman')->nullable();
+            $table->string('qfy')->nullable();
             $table->string('status')->nullable();
 
             $table->timestamps();
