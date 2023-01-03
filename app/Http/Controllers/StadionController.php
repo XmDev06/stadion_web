@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Qfy;
 use App\Models\Stadion;
 use App\Models\Tumanlar;
 use App\Models\User;
@@ -49,9 +50,9 @@ class StadionController extends Controller
             'phone_2' => 'nullable',
             'narxi' => 'required',
             'user_id' => 'required',
-            'moljal'=>'required',
             'viloyat' => 'required',
             'tuman' => 'required',
+            'qfy' => 'required',
         ]);
 
 
@@ -61,10 +62,10 @@ class StadionController extends Controller
                 'phone' => $request->phone,
                 'phone_2' => $request->phone_2,
                 'narxi' => $request->narxi,
-                'moljal' => $request->moljal,
                 'user_id' => $request->user_id,
-                'viloyat' => $request->viloyat,
-                'tuman' => $request->tuman,
+                'viloyat' => $request->viloyat_id,
+                'tuman' => $request->tuman_id,
+                'qfy' => $request->qfy_id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
@@ -92,9 +93,10 @@ class StadionController extends Controller
     public function edit(Stadion $stadion)
     {
         $tumanlar=Tumanlar::all();
+        $qfylar=Qfy::all();
         $viloyatlar=Viloyatlar::all();
         $users = User::where('is_admin', '2')->get();
-        return view('admin.stadions.update',compact('stadion','users','viloyatlar','tumanlar'));
+        return view('admin.stadions.update',compact('stadion','users','viloyatlar','tumanlar','qfylar'));
     }
 
     /**

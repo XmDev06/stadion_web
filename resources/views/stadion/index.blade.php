@@ -8,9 +8,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Stadion Dashboard</h1>
-                    @foreach(\App\Models\Stadion::get()->where('user_id',auth()->user()->id) as $arr)
-                        {{$arr->name}}
-                    @endforeach
+{{--                    @foreach(\App\Models\Stadion::get()->where('user_id',auth()->user()->id) as $arr)--}}
+{{--                        {{$arr->name}}--}}
+{{--                    @endforeach--}}
 
                 </div><!-- /.col -->
                 <div class="col-sm-6">

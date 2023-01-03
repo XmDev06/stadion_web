@@ -58,10 +58,6 @@
                                     <label for="narxi" class="form-label">Narxi(so'm)</label>
                                     <input value="{{$stadion->narxi}}" type="number" class="form-control" id="narxi" aria-describedby="narxi" name="narxi">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="narxi" class="form-label">Mo'ljal</label>
-                                    <textarea type="number" class="form-control" id="narxi" aria-describedby="narxi" name="moljal">{{$stadion->moljal}}</textarea>
-                                </div>
 
                                 <div class="mb-3">
                                     <label for="user_id" class="form-label">User</label><br>
@@ -81,11 +77,11 @@
                                 <div class="mb-3">
                                     <label for="user_id" class="form-label">Viloyat</label><br>
                                     <select id="user_id" class="form-select" aria-label="Default select example"
-                                            name="viloyat">
+                                            name="viloyat_id">
                                         @foreach($viloyatlar as $viloyat)
-                                            @if($stadion->viloyat == $viloyat->id)
+                                            @if($stadion->viloyat_id == $viloyat->id)
                                                 <option selected
-                                                        value="{{$stadion->viloyat}}">{{$viloyat->name}}</option>
+                                                        value="{{$stadion->viloyat_id}}">{{$viloyat->name}}</option>
                                             @else
                                                 <option value="{{$viloyat->id}}">{{$viloyat->name}}</option>
                                             @endif
@@ -96,17 +92,40 @@
                                 <div class="mb-3">
                                     <label for="user_id" class="form-label">Tuman</label><br>
                                     <select id="user_id" class="form-select" aria-label="Default select example"
-                                            name="tuman">
+                                            name="tuman_id">
                                         @foreach($tumanlar as $tuman)
-                                            @if($stadion->tuman == $tuman->id)
+                                            @if($stadion->tuman_id == $tuman->id)
                                                 <option selected
-                                                        value="{{$stadion->tuman}}">{{$tuman->name}}</option>
+                                                        value="{{$stadion->tuman_id}}">{{$tuman->name}}</option>
                                             @else
                                                 <option value="{{$tuman->id}}">{{$tuman->name}}</option>
                                             @endif
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="user_id" class="form-label">QFY</label><br>
+                                    <select id="user_id" class="form-select" aria-label="Default select example"
+                                            name="qfy_id">
+                                        @foreach($qfylar as $qfy)
+                                            @if($stadion->qfy_id == $qfy->id)
+                                                <option selected
+                                                        value="{{$stadion->qfy_id}}">{{$qfy->name}}</option>
+                                            @else
+                                                <option value="{{$qfy->id}}">{{$qfy->name}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                ////
+                                ////
+                                ////    Qfylarni muammosi bor
+                                ////
+                                ////
+
+
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
 

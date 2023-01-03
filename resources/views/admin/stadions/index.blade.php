@@ -43,10 +43,10 @@
                                     <th>Phone</th>
                                     <th>Phone 2</th>
                                     <th>Narxi</th>
-                                    <th>Mo'ljal</th>
                                     <th>User</th>
                                     <th>Viloyat</th>
                                     <th>Tuman</th>
+                                    <th>Qfy</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -61,11 +61,12 @@
                                         @else
                                             <td>Mavjud emas</td>
                                         @endif
+{{--                                        @dd(\App\Models\Qfy::find($stadion->qfy_id))--}}
                                         <td>{{$stadion->narxi}}</td>
-                                        <td>{{$stadion->moljal}}</td>
                                         <td>{{\App\Models\User::find($stadion->user_id)->name}}</td>
-                                        <td>{{\App\Models\Viloyatlar::find($stadion->viloyat)->name}}</td>
-                                        <td>{{\App\Models\Tumanlar::find($stadion->tuman)->name}}</td>
+                                        <td>{{\App\Models\Viloyatlar::find($stadion->viloyat_id)->name}}</td>
+                                        <td>{{\App\Models\Tumanlar::find($stadion->tuman_id)->name}}</td>
+                                        <td>{{\Illuminate\Support\Facades\DB::table('qfy')->find($stadion->qfy_id)->name}}</td>
                                         <td>
 {{--                                            <a class="btn btn-primary" href="{{route('stadions.show', $stadion->id)}}">Show</a>--}}
                                             <a class="btn btn-primary" href="{{route('stadions.edit', $stadion->id)}}">Update</a>
